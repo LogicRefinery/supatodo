@@ -1,11 +1,8 @@
 const read = async ({ id }: { id: any }) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/user?id=${id}`,
-    {
-      method: "GET",
-      next: { tags: ["user"] },
-    }
-  );
+  const response = await fetch(`${process.env.API_URL}/api/user?id=${id}`, {
+    method: "GET",
+    next: { tags: ["user"] },
+  });
   const data = await response.json();
   return data;
 };
