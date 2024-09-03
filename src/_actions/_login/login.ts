@@ -14,7 +14,7 @@ export const signIn = async (formData: FormData) => {
   });
 
   if (error) {
-    return redirect("/login?message=인증되지 않은 사용자입니다.");
+    return redirect("/login?message=xxxxxxxxxx.");
   }
 
   return redirect("/protected");
@@ -30,13 +30,13 @@ export const signUp = async (formData: FormData) => {
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/auth/callback`,
+      emailRedirectTo: `${origin}/protected`,
     },
   });
 
   if (error) {
-    return redirect("/login?message=인증메일 발송에 실패하였습니다.");
+    return redirect("/login?message=xxxxxxxxxxx");
   }
 
-  return redirect("/login?message=인증메일을 발송하였습니다.");
+  return redirect("/login?message=oooooooooooo");
 };
