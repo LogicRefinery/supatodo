@@ -37,7 +37,7 @@ function Header() {
           <Button
             text="login"
             fn={() => {
-              router.push("/login?login=123&login44=222");
+              router.push("/login");
             }}
           />
         </>
