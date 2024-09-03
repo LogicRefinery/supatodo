@@ -67,12 +67,14 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
     },
     modify: async (todo: Todo) => {
       try {
+        console.time("제일 외곽에서 통신시작");
         await client_todo_service.modify({ ...todo, done: !todo.done });
         setTodos((prev: any) =>
           prev.map((item: Todo) =>
             item.id === todo.id ? { ...item, done: !item.done } : item
           )
         );
+        console.timeEnd("제일 외곽에서 통신시작");
       } catch (error) {
         console.error(error);
       }
