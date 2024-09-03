@@ -15,7 +15,7 @@ function Header() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const todo = { todo: text, id: userContext.user?.id };
+    const todo = { text, created_user_id: userContext.user?.id };
     todoContext.method.add(todo);
     setText("");
   };

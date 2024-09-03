@@ -6,16 +6,22 @@ import { v4 as uuidv4 } from "uuid";
 const prisma = new PrismaClient();
 
 const create = async (payload: any) => {
-  const id = uuidv4();
-  const todo = await prisma.todo.create({
-    data: { ...payload, id },
-  });
+  try {
+    console.log("서버 서비스로직", payload);
+    const id = uuidv4();
 
-  return await prisma.todo.findUnique({
-    where: {
-      id,
-    },
-  });
+    console.log({ ...payload, id }, "뿌애애앵");
+    const todo = await prisma.todo.create({
+      data: { ...payload, id },
+    });
+
+    console.log("서버 서비스 로직 내", todo);
+
+    return todo;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
 const modify = async (payload: any) => {

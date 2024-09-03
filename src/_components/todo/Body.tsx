@@ -28,7 +28,7 @@ function Body() {
                   todo.done ? "line-through" : ""
                 }`}
               >
-                <div className="mr-auto">{todo.todo}</div>
+                <div className="mr-auto">{todo.text}</div>
                 <div>
                   {todo.done ? (
                     <input
@@ -40,6 +40,7 @@ function Body() {
                     />
                   ) : undefined}
                 </div>
+                <div>{todo.id}</div>
                 <div>
                   <input
                     type="checkbox"

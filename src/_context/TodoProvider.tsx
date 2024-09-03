@@ -55,10 +55,10 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
         }
       }
     },
-    add: async (todo: { todo: string; id: string }) => {
+    add: async (inputTodo: { text: string; created_user_id: string }) => {
       setIsLoading(true);
       try {
-        await client_todo_service.create(todo);
+        const todo = await client_todo_service.create(inputTodo);
         setTodos((prev: any) => [todo, ...prev]);
       } catch (error) {
         setError(error);

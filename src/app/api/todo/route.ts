@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
 
 //데이터베이스 서비스로직
-
 const prisma = new PrismaClient();
 
 export async function GET(request: NextRequest) {

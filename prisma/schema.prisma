@@ -12,11 +12,11 @@ datasource db {
 /// This model contains row level security and requires additional setup for migrations.
 /// Visit https://pris.ly/d/row-level-security for more info.
 model Todo {
-  created_at      DateTime @default(now()) @db.Timestamptz(6)
-  todo            String   @default("")
-  done            Boolean  @default(false)
-  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  created_user_id String   @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at      DateTime? @default(now()) @db.Timestamptz(6)
+  text            String?   @default("")
+  done            Boolean?  @default(false)
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_user_id String?   @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
   @@schema("public")
 }
