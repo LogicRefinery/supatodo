@@ -14,7 +14,7 @@ export default function Login({
       <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
         <form className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
           <label className="text-md" htmlFor="email">
-            Email
+            이메일
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -23,7 +23,7 @@ export default function Login({
             required
           />
           <label className="text-md" htmlFor="password">
-            Password
+            비밀번호
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -35,16 +35,16 @@ export default function Login({
           <SubmitButton
             formAction={signIn}
             className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
-            pendingText="Signing In..."
+            pendingText="회원정보 확인중..."
           >
-            Sign In
+            로그인
           </SubmitButton>
           <SubmitButton
             formAction={signUp}
             className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-            pendingText="Signing Up..."
+            pendingText="인증메일 발송중..."
           >
-            Sign Up
+            회원가입
           </SubmitButton>
           {searchParams?.message && (
             <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
