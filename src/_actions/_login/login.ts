@@ -3,6 +3,8 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../utils/supabase/server";
 
+let message = "";
+
 export const signIn = async (formData: FormData) => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
@@ -14,7 +16,8 @@ export const signIn = async (formData: FormData) => {
   });
 
   if (error) {
-    return redirect("/login?message=xxxxxxxxxx.");
+    message = encodeURIComponent("인증되지 않은 사용자입니다.");
+    return redirect(`/login?message=${message}`);
   }
 
   return redirect("/protected");
@@ -35,8 +38,9 @@ export const signUp = async (formData: FormData) => {
   });
 
   if (error) {
-    return redirect("/login?message=xxxxxxxxxxx");
+    message = encodeURIComponent("인증메일 발송에 실패하였습니다.");
+    return redirect(`/login?message=${message}`);
   }
-
-  return redirect("/login?message=oooooooooooo");
+  message = encodeURIComponent("인증메일을 발송하였습니다.");
+  return redirect(`/login?message=${message}`);
 };
