@@ -14,7 +14,7 @@ export const signIn = async (formData: FormData) => {
   });
 
   if (error) {
-    return redirect("/login?message=Could not authenticate user");
+    return redirect("/login?message=인증되지 않은 사용자입니다.");
   }
 
   return redirect("/protected");
@@ -35,8 +35,8 @@ export const signUp = async (formData: FormData) => {
   });
 
   if (error) {
-    return redirect("/login?message=Could not authenticate user");
+    return redirect("/login?message=인증메일 발송에 실패하였습니다.");
   }
 
-  return redirect("/login?message=Check email to continue sign in process");
+  return redirect("/login?message=인증메일을 발송하였습니다.");
 };
