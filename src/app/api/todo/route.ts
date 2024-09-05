@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const payload = await request.json();
-    const todo = await server_todo_service.modify(payload);
+    const todo = await server_todo_service.checked(payload);
 
     console.log();
     return Response.json(

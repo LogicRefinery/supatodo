@@ -19,8 +19,10 @@ export default function Login({
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             name="email"
+            id="email"
             placeholder="you@example.com"
             required
+            autoComplete="on"
           />
           <label className="text-md" htmlFor="password">
             비밀번호
@@ -29,12 +31,14 @@ export default function Login({
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             type="password"
             name="password"
+            id="password"
             placeholder="••••••••"
             required
+            autoComplete="on"
           />
           <SubmitButton
             formAction={signIn}
-            className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
+            className="bg-slate-300 rounded-md px-4 py-2 text-foreground mb-2"
             pendingText="회원정보 확인중..."
           >
             로그인

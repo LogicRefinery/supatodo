@@ -20,8 +20,7 @@ const create = async (payload: any) => {
   }
 };
 
-const modify = async (payload: any) => {
-  console.time("통신에 걸린시간");
+const checked = async (payload: any) => {
   const todo = await prisma.todo.update({
     where: {
       id: payload.id,
@@ -30,7 +29,7 @@ const modify = async (payload: any) => {
       done: payload.done,
     },
   });
-  console.timeEnd("통신에 걸린시간");
+
   return await prisma.todo.findUnique({
     where: {
       id: payload.id,
@@ -47,4 +46,4 @@ const remove = async (payload: any) => {
   return { id: payload.id };
 };
 
-export const server_todo_service = { create, modify, remove };
+export const server_todo_service = { create, checked, remove };

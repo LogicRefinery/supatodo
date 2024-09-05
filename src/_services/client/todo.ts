@@ -40,7 +40,7 @@ const remove = async ({ id }: { id: string }) => {
   return data;
 };
 
-const modify = async (todo: Todo) => {
+const checked = async (todo: Todo) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todo`, {
     method: "PATCH",
     body: JSON.stringify(todo),
@@ -54,5 +54,5 @@ export const client_todo_service = {
   create,
   read,
   remove,
-  modify,
+  checked,
 };

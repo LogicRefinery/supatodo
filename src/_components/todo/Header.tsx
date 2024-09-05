@@ -27,17 +27,17 @@ function Header() {
           <legend className="sr-only">투두 입력폼</legend>
         </fieldset>
         <input
-          className="border rounded-[5px] border-black  w-[100%] h-[44px] pl-[10px]"
+          className="rounded-tl-[10px] border-b-[1px] border-black w-[100%] h-[44px] pl-[10px]"
           type="text"
-          placeholder="할 일 입력"
+          placeholder="Write task here"
           value={text}
           onChange={onChange}
           required
         />
         <input
           type="submit"
-          value="추가"
-          className="bg-gray-950 text-white  rounded-[5px] h-[44px] w-[44px]"
+          value="+"
+          className="bg-gray-950 text-white rounded-tr-[8px] h-[44px] w-[44px]"
         />
       </form>
     </>
