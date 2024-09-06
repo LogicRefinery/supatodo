@@ -7,7 +7,7 @@ import { useUserContext } from "./UserProvider";
 type Method = {
   init: () => void;
   add: (todo: any) => void;
-  checked: (todo: Todo) => void;
+  toggle: (todo: Todo) => void;
   remove: (id: string) => void;
 };
 
@@ -21,7 +21,7 @@ const todoContext = createContext<{
   method: {
     init: () => {},
     add: (todo: any) => {},
-    checked: (todo: Todo) => {},
+    toggle: (todo: Todo) => {},
     remove: (id: string) => {},
   },
   isLoading: false,
@@ -65,9 +65,9 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       }
       setIsLoading(false);
     },
-    checked: async (todo: Todo) => {
+    toggle: async (todo: Todo) => {
       try {
-        await client_todo_service.checked({ ...todo, done: !todo.done });
+        await client_todo_service.toggle({ ...todo, done: !todo.done });
         setTodos((prev: any) =>
           prev.map((item: Todo) =>
             item.id === todo.id ? { ...item, done: !item.done } : item

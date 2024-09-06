@@ -20,7 +20,7 @@ const create = async (payload: any) => {
   }
 };
 
-const checked = async (payload: any) => {
+const toggle = async (payload: any) => {
   const todo = await prisma.todo.update({
     where: {
       id: payload.id,
@@ -46,4 +46,4 @@ const remove = async (payload: any) => {
   return { id: payload.id };
 };
 
-export const server_todo_service = { create, checked, remove };
+export const server_todo_service = { create, toggle, remove };

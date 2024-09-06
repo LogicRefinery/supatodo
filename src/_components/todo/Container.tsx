@@ -25,9 +25,6 @@ border-black rounded-[10px] h-[80vh]"
       >
         <Header></Header>
         <Body></Body>
-        <div className="rounded-b-[10px] bg-white  text-center text-[24px] font-extrabold p-[10px] mt-auto">
-          footer
-        </div>
       </div>
     </article>
   );
