@@ -14,7 +14,9 @@ export const useTodoAction = () => {
     todoContext.method.toggle(todo);
   };
 
-  const onModify = async (todo: Todo) => {};
+  const onModify = async (todo: Todo) => {
+    todoContext.method.modify(todo);
+  };
 
   return { todoContext, onRemove, onToggle, onModify };
 };

@@ -9,6 +9,7 @@ type Method = {
   add: (todo: any) => void;
   toggle: (todo: Todo) => void;
   remove: (id: string) => void;
+  modify: (todo: Todo) => void;
 };
 
 const todoContext = createContext<{
@@ -23,6 +24,7 @@ const todoContext = createContext<{
     add: (todo: any) => {},
     toggle: (todo: Todo) => {},
     remove: (id: string) => {},
+    modify: (todo: Todo) => {},
   },
   isLoading: false,
   error: null,
@@ -72,6 +74,16 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
           prev.map((item: Todo) =>
             item.id === todo.id ? { ...item, done: !item.done } : item
           )
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    modify: async (todo: Todo) => {
+      try {
+        await client_todo_service.modify(todo);
+        setTodos((prev: any) =>
+          prev.map((item: Todo) => (item.id === todo.id ? todo : item))
         );
       } catch (error) {
         console.error(error);

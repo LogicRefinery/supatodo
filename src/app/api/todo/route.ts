@@ -53,7 +53,23 @@ export async function PATCH(request: NextRequest) {
     const payload = await request.json();
     const todo = await server_todo_service.toggle(payload);
 
-    console.log();
+    return Response.json(
+      todo, // JSON 형식으로 응답 본문 설정
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    return Response.json("서버 오류", { status: 500 });
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    const payload = await request.json();
+    const todo = await server_todo_service.modify(payload);
+
     return Response.json(
       todo, // JSON 형식으로 응답 본문 설정
       {

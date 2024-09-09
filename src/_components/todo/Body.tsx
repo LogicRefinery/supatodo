@@ -2,6 +2,7 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
+import { FiSave } from "react-icons/fi";
 import HeadlessTodoRemove from "../common/HeadlessTodoRemove";
 import HeadlessTodoToggle from "../common/HeadlessTodoToggle";
 import HeadlessTodoModify from "../common/HeadlessTodoModify";
@@ -10,7 +11,7 @@ import HeadlessTodo from "../common/HeadlessTodo";
 function Body() {
   return (
     <HeadlessTodo>
-      {({ todoContext }: any) => {
+      {({ todoContext, isEditTodoId, setIsEditTodoId, text, setText }: any) => {
         return (
           <div className="mb-auto">
             <ul className="overflow-y-auto h-[100%]">
@@ -25,18 +26,62 @@ function Body() {
                     >
                       <HeadlessTodoToggle>
                         {({ onToggle }: any) => {
-                          return (
+                          return isEditTodoId === todo.id ? (
+                            <div className="border-[1px] rounded-sm flex-1">
+                              <input
+                                type="text"
+                                onChange={(e) => {
+                                  setText(e.target.value);
+                                }}
+                                value={text}
+                                className="block w-full"
+                              />
+                            </div>
+                          ) : (
                             <div
-                              className="flex-1"
                               onClick={() => {
                                 onToggle(todo);
                               }}
+                              className="flex-1"
                             >
                               {todo.text}
                             </div>
                           );
                         }}
                       </HeadlessTodoToggle>
+                      <HeadlessTodoModify>
+                        {({ onModify }: any) => {
+                          return isEditTodoId === todo.id ? (
+                            <div className="flex items-center ">
+                              <button
+                                className="w-[20px] h-[20px]"
+                                onClick={() => {
+                                  onModify({ ...todo, text });
+                                  setIsEditTodoId("");
+                                }}
+                              >
+                                {
+                                  <FiSave className="w-full h-full hover:text-red-500 "></FiSave>
+                                }
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="flex items-center ">
+                              <button
+                                className="w-[20px] h-[20px]"
+                                onClick={() => {
+                                  setText(todo.text);
+                                  setIsEditTodoId(todo.id);
+                                }}
+                              >
+                                {
+                                  <BiEdit className="w-full h-full hover:text-red-500 "></BiEdit>
+                                }
+                              </button>
+                            </div>
+                          );
+                        }}
+                      </HeadlessTodoModify>
                       <HeadlessTodoRemove>
                         {({ onRemove }: any) => {
                           return (
@@ -50,25 +95,13 @@ function Body() {
                                 >
                                   <MdOutlineDelete className="w-full h-full hover:text-red-500" />
                                 </button>
-                              ) : undefined}
+                              ) : (
+                                <div className="w-[20px] h-[20px]"></div>
+                              )}
                             </div>
                           );
                         }}
                       </HeadlessTodoRemove>
-                      <HeadlessTodoModify>
-                        {() => {
-                          return (
-                            <div className="flex justify-center items-center">
-                              <button
-                                className="w-[20px] h-[20px]"
-                                onClick={() => {}}
-                              >
-                                <BiEdit className="w-full h-full hover:text-red-500 "></BiEdit>
-                              </button>
-                            </div>
-                          );
-                        }}
-                      </HeadlessTodoModify>
 
                       <HeadlessTodoToggle>
                         {({ onToggle }: any) => {

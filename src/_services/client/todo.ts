@@ -49,9 +49,21 @@ const toggle = async (todo: Todo) => {
   return data;
 };
 
+const modify = async (todo: Todo) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todo`, {
+    method: "PUT",
+    body: JSON.stringify(todo),
+  });
+
+  const data = await response.json();
+
+  return data;
+};
+
 export const client_todo_service = {
   create,
   read,
   remove,
   toggle,
+  modify,
 };
