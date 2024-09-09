@@ -9,21 +9,25 @@ import { client_user_service } from "@/_services/client/user";
 interface UserContextType {
   user: User | null;
   customInfo: profiles | null;
+  isLoading: boolean;
 }
 
 const userContext = createContext<UserContextType>({
   user: null,
   customInfo: { id: "", first_name: "", last_name: "" },
+  isLoading: false,
 });
 
 function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [customInfo, setCustomInfo] = useState<profiles | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const supabase = createClient();
 
   useEffect(() => {
     const fetchUser = async () => {
+      setIsLoading(true);
       try {
         const {
           data: { user },
@@ -38,13 +42,14 @@ function UserProvider({ children }: { children: React.ReactNode }) {
       } catch (err) {
         console.error(err);
       }
+      setIsLoading(false);
     };
 
     fetchUser();
   }, []);
 
   return (
-    <userContext.Provider value={{ user, customInfo }}>
+    <userContext.Provider value={{ user, customInfo, isLoading }}>
       {children}
     </userContext.Provider>
   );

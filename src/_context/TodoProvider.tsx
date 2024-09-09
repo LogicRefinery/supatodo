@@ -13,12 +13,12 @@ type Method = {
 };
 
 const todoContext = createContext<{
-  todos: Todo[];
+  todos: Todo[] | null;
   method: Method;
   isLoading: boolean;
   error: any;
 }>({
-  todos: [],
+  todos: null,
   method: {
     init: () => {},
     add: (todo: any) => {},
@@ -35,7 +35,7 @@ const todoContext = createContext<{
 
 function TodoProvider({ children }: { children: React.ReactNode }) {
   //프로바이더 내에 투두리스트를 관리할 상태
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[] | null>(null);
   const [error, setError] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -46,6 +46,7 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
   const method = {
     //메소드 내에서 api 호출까지 하자.
     init: async () => {
+      setIsLoading(true);
       if (userContext.user) {
         try {
           const todos = await client_todo_service.read({
@@ -56,6 +57,7 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
           console.error(error);
         }
       }
+      setIsLoading(false);
     },
     add: async (inputTodo: { text: string; created_user_id: string }) => {
       setIsLoading(true);
@@ -68,6 +70,7 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(false);
     },
     toggle: async (todo: Todo) => {
+      setIsLoading(true);
       try {
         await client_todo_service.toggle({ ...todo, done: !todo.done });
         setTodos((prev: any) =>
@@ -78,8 +81,10 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error(error);
       }
+      setIsLoading(false);
     },
     modify: async (todo: Todo) => {
+      setIsLoading(true);
       try {
         await client_todo_service.modify(todo);
         setTodos((prev: any) =>
@@ -88,8 +93,10 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error(error);
       }
+      setIsLoading(false);
     },
     remove: async (id: string) => {
+      setIsLoading(true);
       if (userContext.user) {
         try {
           await client_todo_service.remove({ id });
@@ -98,6 +105,7 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
           console.error(error);
         }
       }
+      setIsLoading(false);
     },
   };
 

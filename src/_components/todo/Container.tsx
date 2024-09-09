@@ -15,9 +15,12 @@ function Container() {
 
   return (
     <article className="h-screen flex justify-center flex-col items-center">
-      <div className="flex justify-end w-1/2">{`${
-        userContext.user && userContext.user.id
-      }님 어서오세요`}</div>
+      {userContext.isLoading || !userContext.user ? (
+        <div className="flex justify-end w-1/2">유저정보 로딩중..</div>
+      ) : (
+        <div className="flex justify-end w-1/2">{`${userContext.user.id}님 어서오세요`}</div>
+      )}
+
       <h2 className="sr-only">투두리스트</h2>
       <div
         className="w-1/2 flex flex-col justify-between border

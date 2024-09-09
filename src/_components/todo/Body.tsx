@@ -7,15 +7,21 @@ import HeadlessTodoRemove from "../common/HeadlessTodoRemove";
 import HeadlessTodoToggle from "../common/HeadlessTodoToggle";
 import HeadlessTodoModify from "../common/HeadlessTodoModify";
 import HeadlessTodo from "../common/HeadlessTodo";
+import { GridLoader } from "react-spinners";
 
 function Body() {
   return (
     <HeadlessTodo>
       {({ todoContext, isEditTodoId, setIsEditTodoId, text, setText }: any) => {
+        console.log(todoContext.isLoading);
         return (
-          <div className="mb-auto">
-            <ul className="overflow-y-auto h-[100%]">
-              {todoContext.todos &&
+          <div className="h-full">
+            <ul className="overflow-y-auto h-full">
+              {todoContext.isLoading || !todoContext.todos ? (
+                <div className="h-full flex justify-center items-center">
+                  <GridLoader />
+                </div>
+              ) : (
                 todoContext.todos.map((todo: any) => {
                   return (
                     <li
@@ -49,6 +55,7 @@ function Body() {
                           );
                         }}
                       </HeadlessTodoToggle>
+
                       <HeadlessTodoModify>
                         {({ onModify }: any) => {
                           return isEditTodoId === todo.id ? (
@@ -129,7 +136,8 @@ function Body() {
                       </HeadlessTodoToggle>
                     </li>
                   );
-                })}
+                })
+              )}
             </ul>
           </div>
         );
