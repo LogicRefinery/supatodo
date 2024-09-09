@@ -60,17 +60,14 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(false);
     },
     add: async (inputTodo: { text: string; created_user_id: string }) => {
-      setIsLoading(true);
       try {
         const todo = await client_todo_service.create(inputTodo);
         setTodos((prev: any) => [todo, ...prev]);
       } catch (error) {
         setError(error);
       }
-      setIsLoading(false);
     },
     toggle: async (todo: Todo) => {
-      setIsLoading(true);
       try {
         await client_todo_service.toggle({ ...todo, done: !todo.done });
         setTodos((prev: any) =>
@@ -81,10 +78,8 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error(error);
       }
-      setIsLoading(false);
     },
     modify: async (todo: Todo) => {
-      setIsLoading(true);
       try {
         await client_todo_service.modify(todo);
         setTodos((prev: any) =>
@@ -93,10 +88,8 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error(error);
       }
-      setIsLoading(false);
     },
     remove: async (id: string) => {
-      setIsLoading(true);
       if (userContext.user) {
         try {
           await client_todo_service.remove({ id });
@@ -105,7 +98,6 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
           console.error(error);
         }
       }
-      setIsLoading(false);
     },
   };
 
