@@ -1,4 +1,4 @@
-import Container from "@/_components/todo/Container";
+import Todo from "@/_components/todo/Container";
 import React from "react";
 import TodoProvider from "@/_context/TodoProvider";
 import UserProvider from "@/_context/UserProvider";
@@ -10,7 +10,7 @@ function Page() {
       <UserProvider>
         <TodoProvider>
           <QueryProvider>
-            <Container></Container>
+            <Todo></Todo>
           </QueryProvider>
         </TodoProvider>
       </UserProvider>

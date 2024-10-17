@@ -3,7 +3,7 @@ import HeadlessTodo from "../common/HeadlessTodo";
 import { GridLoader } from "react-spinners";
 import TodoItem from "./TodoItem";
 
-function Body() {
+function Todo() {
   return (
     <HeadlessTodo>
       {({ todoContext, onModify, onRemove, onToggle }: any) => {
@@ -35,4 +35,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default Todo;

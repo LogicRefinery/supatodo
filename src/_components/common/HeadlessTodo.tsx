@@ -1,6 +1,5 @@
 "use client";
 import { useTodoAction } from "@/_hooks/useTodoAction";
-import { useState } from "react";
 
 function HeadlessTodo({ children }: any) {
   const { todoContext, onModify, onRemove, onToggle } = useTodoAction();

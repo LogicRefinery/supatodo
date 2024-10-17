@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Header from "./Header";
-import Body from "./Body";
+import Todo from "./Todo";
 import { useTodoContext } from "@/_context/TodoProvider";
 import { useUserContext } from "@/_context/UserProvider";
 
@@ -27,7 +27,7 @@ function Container() {
 border-black rounded-[10px] h-[80vh]"
       >
         <Header></Header>
-        <Body></Body>
+        <Todo></Todo>
       </div>
     </article>
   );

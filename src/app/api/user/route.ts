@@ -26,6 +26,19 @@ export async function GET(request: NextRequest) {
   }
 }
 
+export async function POST(request: NextRequest) {
+  try {
+    const result = await prisma.profiles.findMany();
+
+    return Response.json(result, {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.log(error);
+    return Response.json("서버 오류", { status: 500 });
+  }
+}
+
 // export async function POST(request: NextRequest) {
 //   //컨트롤러의 관심사 : 요청, 응답 ( 서비스 로직에는 관심이 없다. )
 //   try {
