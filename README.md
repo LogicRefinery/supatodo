@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://capsule-render.vercel.app/api?type=waving&color=64d8fe&height=150&section=header" />
 
-## Getting Started
+# Supatodo ( supabase를 활용한 풀스택 투두리스트 )
 
-First, run the development server:
+## 프로젝트 소개
+supabase, p
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+개발 기간 및 링크|기술 스택|
+|:---|:---:|
+|기간 : 2024.02 - 2024.02<br>URL : <https://th-gallery-rose.vercel.app/><br>|<img src="https://img.shields.io/badge/Typescript-000?style=flat-square&logo=typescript&logoColor=#3178C6"/> <img src="https://img.shields.io/badge/ReactJs-000?style=flat-square&logo=react&logoColor=#61DAFB"/> <img src="https://img.shields.io/badge/NextJs-000?style=flat-square&logo=nextdotjs&logoColor=#000000"/><img src="https://img.shields.io/badge/Sass Module-000?style=flat-square&logo=Sass&logoColor=#CC6699"/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 메인 
+![스크린샷 2024-11-27 오후 6 23 27](https://github.com/user-attachments/assets/a37e519b-1fd6-446a-b15d-ceea2ec3f8fb)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 북마크
+![image](https://github.com/user-attachments/assets/d86ab664-0096-45ed-a8d3-f5c34d769f2b)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
