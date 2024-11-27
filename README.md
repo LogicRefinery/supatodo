@@ -7,7 +7,7 @@ supabase, p
 
 개발 기간 및 링크|기술 스택|
 |:---|:---:|
-|기간 : 2024.02 - 2024.02<br>URL : <https://th-gallery-rose.vercel.app/><br>|<img src="https://img.shields.io/badge/Typescript-000?style=flat-square&logo=typescript&logoColor=#3178C6"/> <img src="https://img.shields.io/badge/ReactJs-000?style=flat-square&logo=react&logoColor=#61DAFB"/> <img src="https://img.shields.io/badge/NextJs-000?style=flat-square&logo=nextdotjs&logoColor=#000000"/><img src="https://img.shields.io/badge/Sass Module-000?style=flat-square&logo=Sass&logoColor=#CC6699"/>
+|기간 : 2024.02 - 2024.02<br>URL : <https://th-gallery-rose.vercel.app/><br>|<img src="https://img.shields.io/badge/Typescript-000?style=flat-square&logo=typescript&logoColor=#3178C6"/> <img src="https://img.shields.io/badge/ReactJs-000?style=flat-square&logo=react&logoColor=#61DAFB"/> <img src="https://img.shields.io/badge/NextJs-000?style=flat-square&logo=nextdotjs&logoColor=#000000"/> <img src="https://img.shields.io/badge/Prisma-000?style=flat-square&logo=prisma&logoColor=#61DAFB"/> <img src="https://img.shields.io/badge/TailwindCss-000?style=flat-square&logo=tailwindcss&logoColor=#06B6D4"/>
 
 ## 메인 
 ![스크린샷 2024-11-27 오후 6 23 27](https://github.com/user-attachments/assets/a37e519b-1fd6-446a-b15d-ceea2ec3f8fb)
