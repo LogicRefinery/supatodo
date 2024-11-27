@@ -11,4 +11,5 @@ supabase, prisma 를 활용한 풀스택 투두리스트 입니다.
 
 
 
----
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=64d8fe&height=150&section=footer" />
